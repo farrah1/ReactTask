@@ -10,7 +10,6 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.state = {
-      item: [],
       list: [],
       listSorted: []
     };
@@ -18,9 +17,7 @@ class App extends React.Component {
 
   handleClick(e) {
     console.log(e)
-    this.setState({item: e});
     this.state.list.push(e);
-
     //sort the array of list items by priority
     var newList = this.state.list;
     var sortedList = newList.sort(function(obj1, obj2) {
@@ -34,7 +31,7 @@ class App extends React.Component {
     var updatedList = this.state.list;
       if (updatedList.indexOf(e) > -1) {
       updatedList.splice(updatedList.indexOf(e), 1);
-    }
+      }
     this.forceUpdate();
   }
 

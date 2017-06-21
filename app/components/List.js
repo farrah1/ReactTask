@@ -6,13 +6,11 @@ import Selection from './Selection';
 class List extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      editing: false,
-      newItem: [],
-      item: []
-    }
     this.toggleEditing = this.toggleEditing.bind(this);
     this.saveNew = this.saveNew.bind(this);
+    this.state = {
+      editing: false,
+    }
   }
 
   deleteItem(e) {
@@ -24,7 +22,6 @@ class List extends React.Component {
   }
 
   saveNew(e) {
-    this.setState({newItem: e});
     this.props.onChange(e)
     this.setState({editing: false});
   }
