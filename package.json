@@ -1,0 +1,25 @@
+{
+  "name": "task1",
+  "version": "1.0.0",
+  "description": "my reactjs task",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "author": "Farrah Amador",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-addons-update": "^15.5.2",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
