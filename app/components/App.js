@@ -23,14 +23,19 @@ class App extends React.Component {
     var sortedList = newList.sort(function(obj1, obj2) {
       //from high to low priority
       return obj2.priority - obj1.priority;
-      })
+      });
+    var finalList=[];
+    for (var i=0; i<sortedList.length; i++) {
+      finalList.push(sortedList[i].push('key:'+i));//******FIX THIS******
+    }
+    console.log(finalList)
     this.setState({listSorted: sortedList});
   }
 
   deleteItem(e) {
-    var updatedList = this.state.list;
-      if (updatedList.indexOf(e) > -1) {
-      updatedList.splice(updatedList.indexOf(e), 1);
+    var list = this.state.list;
+      if (list.indexOf(e) > -1) {
+      list.splice(list.indexOf(e), 1);
       }
     this.forceUpdate();
   }

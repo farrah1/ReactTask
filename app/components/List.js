@@ -14,7 +14,7 @@ class List extends React.Component {
   }
 
   deleteItem(e) {
-  this.props.onDelete(e);
+    this.props.onDelete(e);
   }
 
   toggleEditing() {
