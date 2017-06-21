@@ -13,7 +13,6 @@ class Selection extends React.Component {
     this.state = {
       input: '',
       priority: '2',
-
       item: {
         input: 'Add item to list...',
         priority: '2',
@@ -31,7 +30,7 @@ class Selection extends React.Component {
 
   handleClick() {
     var newItem = update(this.state.item, {$set: {input: this.state.input, priority: this.state.priority}});
-    this.props.onChange(newItem)
+    this.props.onChange(newItem);
   }
 
   render() {

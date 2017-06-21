@@ -12,33 +12,28 @@ class List extends React.Component {
       item: []
     }
     this.toggleEditing = this.toggleEditing.bind(this);
-    this.toggleSave = this.toggleSave.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.saveNew = this.saveNew.bind(this);
   }
 
   deleteItem(e) {
-  this.setState({newItem: true})
+  this.props.onDelete(e);
   }
 
   toggleEditing() {
     this.setState({editing: true});
   }
 
-  toggleSave() {
-    this.props.onChange(this.state.newItem)
-    this.setState({editing: false});
-  }
-
-  handleChange(e) {
+  saveNew(e) {
     this.setState({newItem: e});
+    this.props.onChange(e)
+    this.setState({editing: false});
   }
 
   render(item) {
     if (this.state.editing) {
       return (
         <div>
-          <Selection onChange={this.handleChange}/>
-          <Button onClick={this.toggleSave.bind(this)} value="Save" />
+          <Selection onChange={this.saveNew.bind(this)} />
         </div>
       )
     }
