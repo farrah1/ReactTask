@@ -30,13 +30,13 @@ class List extends React.Component {
     if (this.state.editing) {
       return (
         <div>
-          <Selection onChange={this.saveNew.bind(this)} />
+          <Selection onChange={this.saveNew.bind(this)} keys={this.props.item.key} />
         </div>
       )
     }
     else {
     var item = this.props.item;
-      return <li className={"list-item-"+item.priority}>{item.input}<Button  onClick={this.deleteItem.bind(this, item)} value="Delete" /><Button onClick={this.toggleEditing.bind(this, item)} value="Edit" /></li>
+      return <li id={'key-'+item.key} className={"list-item-"+item.priority}>{item.input}<Button  onClick={this.deleteItem.bind(this, item)} value="Delete" /><Button onClick={this.toggleEditing.bind(this, item)} value="Edit" /></li>
       }
     }
 };

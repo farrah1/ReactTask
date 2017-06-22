@@ -16,7 +16,7 @@ class Priority extends React.Component {
   render() {
     return (
       <select id="priority" onChange={this.handleChange} >
-          <option value="2">
+          <option value="0">
             High
           </option>
 
@@ -24,7 +24,7 @@ class Priority extends React.Component {
             Medium
           </option>
 
-          <option value="0">
+          <option value="2">
             Low
           </option>
       </select>

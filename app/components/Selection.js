@@ -12,10 +12,12 @@ class Selection extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       input: '',
-      priority: '2',
+      priority: '0',
+      key: this.props.keys,
       item: {
         input: 'Add item to list...',
-        priority: '2',
+        priority: '0',
+        key: 0
       },
     };
   }
@@ -29,8 +31,11 @@ class Selection extends React.Component {
   }
 
   handleClick() {
-    var newItem = update(this.state.item, {$set: {input: this.state.input, priority: this.state.priority}});
+    var newItem = update(this.state.item, {$set: {input: this.state.input, priority: this.state.priority, key: this.props.keys}});
+    console.log(newItem)
     this.props.onChange(newItem);
+    console.log(newItem)
+
   }
 
   render() {

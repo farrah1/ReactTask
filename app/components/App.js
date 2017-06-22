@@ -16,26 +16,36 @@ class App extends React.Component {
   }
 
   handleClick(e) {
-    console.log(e)
-    this.state.list.push(e);
-    //sort the array of list items by priority
-    var newList = this.state.list;
-    var sortedList = newList.sort(function(obj1, obj2) {
-      //from high to low priority
-      return obj2.priority - obj1.priority;
-      });
-    var finalList=[];
-    for (var i=0; i<sortedList.length; i++) {
-      finalList.push(sortedList[i].push('key:'+i));//******FIX THIS******
+    if (e.key != undefined) {
+      console.log('this is an edit')
     }
-    console.log(finalList)
-    this.setState({listSorted: sortedList});
+    else {
+    this.state.list.push(e);
+    //add a key to each object
+    for (var i=0; i<this.state.list.length; i++) {
+      var obj = this.state.list[i];
+      obj['key']= i.toString()
+    }
+    }
+
+    //sort the array of list items by priority
+    var newList = this.state.list.slice();
+
+    newList.sort(function(a, b) {
+      //from high to low priority
+      return a.priority - b.priority || a.key - b.key;
+      });
+
+    // console.log(newList)
+    // console.log(this.state.list)
+    this.setState({listSorted: newList});
   }
 
   deleteItem(e) {
     var list = this.state.list;
       if (list.indexOf(e) > -1) {
       list.splice(list.indexOf(e), 1);
+      this.state.listSorted.splice(this.state.listSorted.indexOf(e), 1);
       }
     this.forceUpdate();
   }
@@ -46,7 +56,7 @@ class App extends React.Component {
         <Selection onChange={this.handleClick} />
         <ul>
           {this.state.listSorted.map(function(item){
-            return <List item={item} onChange={this.handleClick} onDelete={this.deleteItem}/>
+            return <List item={item} key={item.key} onChange={this.handleClick} onDelete={this.deleteItem}/>
           }, this)}
         </ul>
       </div>
