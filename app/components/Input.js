@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Input extends React.Component {
-
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -18,4 +17,5 @@ class Input extends React.Component {
     )
   }
 };
+
 export default Input;

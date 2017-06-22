@@ -32,10 +32,7 @@ class Selection extends React.Component {
 
   handleClick() {
     var newItem = update(this.state.item, {$set: {input: this.state.input, priority: this.state.priority, key: this.props.keys}});
-    console.log(newItem)
     this.props.onChange(newItem);
-    console.log(newItem)
-
   }
 
   render() {
