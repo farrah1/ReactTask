@@ -20,8 +20,8 @@ class App extends React.Component {
     this.state.list.push(e);
     //add a key to each object
     for (var i=0; i<this.state.list.length; i++) {
-      var obj = this.state.list[i];
-      obj['key']= i.toString()
+      var item = this.state.list[i];
+      item['key']= i.toString()
     }
   }
 
@@ -32,16 +32,16 @@ class App extends React.Component {
       var arr=this.state.list;
       for (var i=0; i<arr.length; i++) {
         if (arr[i].key == e.key) {
-          var arr2=arr[i];
+          var item=arr[i];
             //if there was no change in priority...
-            if (arr2.priority == e.priority) {
+            if (item.priority == e.priority) {
               //update only the input
-              return arr2.input = e.input;
+              return item.input = e.input;
             }
             //if there was a change in priority...
             else {
               //remove the current object from the array
-              this.deleteItem(arr2);
+              this.deleteItem(item);
               //add the edit as a new item to the array and assign a new key value
               this.addToList(e);
               this.forceUpdate();
