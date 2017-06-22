@@ -56,14 +56,10 @@ class App extends React.Component {
 
     //sort the array of list items by priority
     var newList = this.state.list.slice();
-
     newList.sort(function(a, b) {
       //from high to low priority
-      return a.priority - b.priority || a.key - b.key;
+      return a.priority - b.priority || a.key - b.key
       });
-
-    // console.log(newList)
-    // console.log(this.state.list)
     this.setState({listSorted: newList});
   }
 
