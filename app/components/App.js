@@ -20,6 +20,7 @@ class App extends React.Component {
 
   handleClick(){
     <AddList name={this.state.listName} />
+
   }
 
   render() {
@@ -41,6 +42,5 @@ class AddList extends React.Component {
      </div>
    }
 };
-
 
 export default App;
