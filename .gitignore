@@ -1,7 +1,4 @@
 
-app/components/OldList.js
-app/components/ListItem.js
-app/components/OldApp.js
 node_modules/.bin/acorn
 *.cmd
 node_modules/.bin/ansi-html

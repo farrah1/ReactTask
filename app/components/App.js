@@ -18,9 +18,8 @@ class App extends React.Component {
     this.setState({listName: e});
   }
 
-  handleClick(){
+  handleClick() {
     <AddList name={this.state.listName} />
-
   }
 
   render() {
@@ -35,11 +34,11 @@ class App extends React.Component {
 
 class AddList extends React.Component {
    render() {
-     console.log('hi');
-     <div className='List'>
+    return (
+     <div>
        <h3>{this.props.name}</h3>
        <List />
-     </div>
+     </div>)
    }
 };
 
