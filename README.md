@@ -1,2 +1,2 @@
 # ReactTask
-This is a simple To Do List created using react
+This is a simple To Do List Generator created using React
